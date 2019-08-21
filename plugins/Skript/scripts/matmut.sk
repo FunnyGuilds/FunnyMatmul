@@ -1,5 +1,5 @@
 function matgen(n: number) :: objects: 
-    # send "matgen odpalone, _n = %{_n}%" to console
+    # send "matgen started, _n = %{_n}%" to console
 
     set {_tmp} to (1.0 / {_n}) / {_n}
     # send "_tmp = %{_tmp}%" to console
@@ -19,7 +19,7 @@ function matgen(n: number) :: objects:
 
 
 function matmul(a: objects, b: objects) :: objects:
-    send "matmmul odpalone" to console
+    send "matmmul started" to console
 
     set {_m} to size of {_a::*}
     set {_nk} to "%first element of {_a::*}%"
@@ -50,7 +50,7 @@ function matmul(a: objects, b: objects) :: objects:
 
 command /matmul:
     trigger:
-        send "no to liczymy" to console
+        send "so we count" to console
         set {_n} to 2
 
         set {_a::*} to matgen({_n})
@@ -60,4 +60,4 @@ command /matmul:
         set {_x::*} to matmul({_a::*}, {_b::*})
         set {_pos} to ({_n} / 2)
 
-        send "gotowe: %{_x::%{_pos}%::%{_pos}%}%" to console
+        send "done: %{_x::%{_pos}%::%{_pos}%}%" to console
